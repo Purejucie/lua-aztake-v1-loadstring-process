@@ -1,0 +1,84 @@
+-- Aztake ScriptHub
+
+-- Section: Features
+local ChatLookEnabled = false
+local AutoLootEnabled = false
+local AutoParryEnabled = false
+local FlyEnabled = false
+local ChatLogEnabled = false
+
+-- Section: Button Activation
+local Button = script.Parent
+local LoadingTime = 30 -- 30 seconds loading time
+
+local function ActivateFeatures()
+    -- Activate Features
+    ChatLookEnabled = true
+    AutoLootEnabled = true
+    AutoParryEnabled = true
+    FlyEnabled = true
+    ChatLogEnabled = true
+    
+    -- Execute Feature Functions
+    ActivateChatLook()
+    ActivateAutoLoot()
+    ActivateAutoParry()
+    ActivateFly()
+    ActivateChatLog()
+    
+    -- Optionally, you can display a message to indicate the features have been activated
+    print("Features activated!")
+end
+
+Button.MouseButton1Click:Connect(function()
+    if not Button.Enabled then
+        return
+    end
+    
+    Button.Enabled = false
+    print("Loading...")
+    wait(LoadingTime)
+    ActivateFeatures()
+    Button.Enabled = true
+end)
+
+-- Section: Feature Functions
+function ActivateChatLook()
+    if ChatLookEnabled then
+        -- Implement the code for Chat Look feature here
+        -- This feature allows you to automatically turn your character's head towards the chat bubble
+        print("Chat Look activated!")
+    end
+end
+
+function ActivateAutoLoot()
+    if AutoLootEnabled then
+        -- Implement the code for Auto Loot feature here
+        -- This feature allows your character to automatically pick up items or currency in the game
+        print("Auto Loot activated!")
+    end
+end
+
+function ActivateAutoParry()
+    if AutoParryEnabled then
+        -- Implement the code for Auto Parry feature here
+        -- This feature automatically performs parry actions to block incoming attacks
+        print("Auto Parry activated!")
+    end
+end
+
+function ActivateFly()
+    if FlyEnabled then
+        -- Implement the code for Fly feature here
+        -- This feature allows your character to fly or enable a form of enhanced movement
+        print("Fly activated!")
+    end
+end
+
+function ActivateChatLog()
+    if ChatLogEnabled then
+        -- Implement the code for Chat Log feature here
+        -- This feature logs the chat messages in a separate window or file for review
+        print("Chat Log activated!")
+    end
+end
